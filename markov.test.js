@@ -13,6 +13,7 @@ describe('Testing MarkovMachine class', ()=>{
     MM = new MarkovMachine("The cat in the hat has a mouse in a house. They are the best of friends.")
   })
   test('constructor function of Markov Machine class',()=>{
+    
     expect(MM.words.length).toEqual(17)
     expect(MM.starters.length).toEqual(2)
     expect(MM.chain).toEqual(expect.any(Object))
@@ -34,15 +35,15 @@ describe('Testing MarkovMachine class', ()=>{
       'the': ['hat','best'],
       'hat': ['has'],
       'has': ['a'],
-      'a' : ['mouse','house'],
+      'a' : ['mouse','house.'],
       'mouse' : ['in'],
       'in': ['the', 'a'],
-      'house' : ['they'],
+      'house.' : ['They'],
       'They': ['are'],
       'are': ['the'],
       'best': ['of'],
-      'of' : ['friends'],
-      'friends' : ['now'],
+      'of' : ['friends.'],
+      'friends.' : ['now'],
       'now' : [null]
     })
 

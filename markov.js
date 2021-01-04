@@ -12,7 +12,7 @@ class MarkovMachine {
   /** build markov machine; read in text.*/
 
   constructor(text) {
-    let words = text.split(/[\r	\n]+/);
+    let words = text.split(/[\r \n]+/);
     this.words = words.filter(c => c !== "" && c !== ".")
     // .map(c => c.toLowerCase())
     this.makeChains();
@@ -59,10 +59,10 @@ class MarkovMachine {
       } else {
         let next = randomWord(this.chain[preceding])
         if (next === null){
-          output[i-1] = preceding+'.'
           output.push(randomWord(this.starters))
+        } else {
+          output.push(next)
         }
-        output.push(next)
       }
     }
     let lastWord = output[output.length -1]
